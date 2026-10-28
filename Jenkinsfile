@@ -9,8 +9,12 @@ pipeline {
         // Path configurations for local Windows environment
         JAVA_HOME = 'C:\\Users\\Kaarun T\\AppData\\Local\\Programs\\Eclipse Adoptium\\jdk-17.0.20.101-hotspot'
         MAVEN_HOME = 'C:\\Users\\Kaarun T\\Downloads\\apache-maven-3.9.16-bin (1)\\apache-maven-3.9.16'
+        DOCKER_BIN = 'C:\\Users\\Kaarun T\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin'
         MAVEN_OPTS = '-Djavax.net.ssl.trustStoreType=WINDOWS-ROOT'
-        PATH = "${JAVA_HOME}\\bin;${MAVEN_HOME}\\bin;${env.PATH}"
+        KUBECONFIG = 'C:\\Users\\Kaarun T\\.kube\\config'
+
+        // Prepend Java, Maven, Docker, and Kubectl binaries to PATH
+        PATH = "${JAVA_HOME}\\bin;${MAVEN_HOME}\\bin;${DOCKER_BIN};${env.PATH}"
     }
 
     stages {
